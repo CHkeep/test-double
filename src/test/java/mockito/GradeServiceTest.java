@@ -15,17 +15,18 @@ class GradeServiceTest {
 
     GradeService gradeService;
     GradeSystem gradeSystem;
+
     @BeforeEach
-    public void setup(){
+    public void setup() {
         gradeSystem = mock(GradeSystem.class);
         when(gradeSystem.gradesFor(1L)).thenReturn(Arrays.asList(90.0, 80.0, 100.0));
         gradeService = new GradeService(gradeSystem);
     }
 
     @Test
-    public void should_return_90_by_mockito(){
+    public void should_return_90_by_mockito() {
         double result = gradeService.calculateAverageGrades(1L);
-        verify(gradeSystem,times(1)).equals(result);
+        verify(gradeSystem, times(1)).equals(result);
     }
-
 }
+
